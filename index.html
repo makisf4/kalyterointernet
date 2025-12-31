@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Σύγκριση παρόχων σταθερού internet στην Ελλάδα για το 2026. Ταχύτητες FTTH, VDSL, FWA, υπέρ & κατά και έλεγχος διαθεσιμότητας ανά περιοχή.">
+    <title>Καλύτερο Σταθερό Internet στην Ελλάδα (2026) | Σύγκριση Παρόχων</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --surface: #ffffff;
+            --text: #111111;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --link: #111111;
+            --linkHover: #2563eb;
+            --radius: 14px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.5;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: transparent;
+            color: var(--text);
+            padding: 72px 0;
+            text-align: center;
+            margin: 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+
+        .subtitle {
+            display: block;
+            font-size: 0.9em;
+            font-weight: 400;
+            color: var(--muted);
+            margin-top: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--muted);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--text);
+            color: var(--surface);
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            border: 1px solid var(--text);
+            letter-spacing: -0.01em;
+        }
+
+        .cta-button:hover {
+            background: var(--linkHover);
+            border-color: var(--linkHover);
+            color: var(--surface);
+        }
+
+        .cta-button:focus-visible {
+            outline: 2px solid var(--linkHover);
+            outline-offset: 2px;
+        }
+
+        /* Main Content */
+        main {
+            background: transparent;
+            padding: 0;
+        }
+
+        section {
+            margin-bottom: 0;
+            padding: 56px 0;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            color: var(--text);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        ul {
+            margin-top: 0.5em;
+            margin-bottom: 0.8em;
+        }
+
+        li {
+            line-height: 1.5;
+            margin-bottom: 0.4em;
+        }
+
+        p {
+            margin-bottom: 0.8em;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text);
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--linkHover);
+            text-decoration: underline;
+        }
+
+        /* Disclosure */
+        .disclosure {
+            font-size: 0.875rem;
+            margin: 16px 0;
+            color: var(--muted);
+            font-weight: 400;
+            padding: 0;
+            background: transparent;
+            border: none;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 0;
+            background-color: var(--surface);
+            overflow-x: auto;
+            overflow-y: visible;
+            display: block;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .comparison-table thead {
+            background: #f3f4f6;
+            color: var(--text);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table td:has(.cta-link) {
+            padding-right: 24px;
+            min-width: 140px;
+        }
+
+        .comparison-table th {
+            font-weight: 600;
+            font-size: 0.8125rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fcfcfd;
+        }
+
+        .comparison-table tbody tr:hover {
+            background-color: #f9fafb;
+            transition: background-color 0.15s ease;
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .cta-cell {
+            text-align: center;
+        }
+
+        .comparison-table td:has(img.provider-logo) {
+            text-align: center;
+            min-width: 120px;
+            width: auto;
+            padding: 12px 16px !important;
+        }
+
+        .comparison-table img.provider-logo {
+            height: 48px !important;
+            min-height: 48px !important;
+            width: auto !important;
+            max-width: none !important;
+            max-height: none !important;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .comparison-table .cta-link {
+            display: inline-block;
+            background: var(--text);
+            color: var(--surface);
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border: 1px solid var(--text);
+        }
+
+        .comparison-table .cta-link:hover {
+            background: var(--linkHover);
+            border-color: var(--linkHover);
+            color: var(--surface);
+            text-decoration: none;
+        }
+
+        /* Provider Logos */
+        .provider-logo {
+            height: 40px;
+            width: auto;
+            vertical-align: middle;
+            margin-right: 8px;
+            display: inline-block;
+        }
+
+        .provider-logo-lg {
+            height: 48px;
+            width: auto;
+            vertical-align: middle;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        /* Provider Cards */
+        .provider-section {
+            background: transparent;
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
+            margin-bottom: 0;
+            border-radius: 0;
+            transition: all 0.15s ease;
+        }
+
+        .provider-section:first-of-type {
+            border-top: none;
+        }
+
+        .provider-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .provider-header .provider-logo-lg {
+            margin-bottom: 10px;
+            margin-right: 0;
+        }
+
+        .provider-section h2 {
+            border-bottom: none;
+            margin-bottom: 0;
+            margin-top: 0;
+            color: var(--text);
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .provider-section h3 {
+            margin-top: 1.2em;
+            margin-bottom: 0.5em;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 0.5em 0 0.8em 0;
+        }
+
+        .features-list li {
+            padding: 0.35em 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.45;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .pros-cons {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 24px;
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 100%;
+            align-items: start;
+        }
+
+        .pros, .cons {
+            width: 100%;
+            min-width: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .pros, .cons {
+            padding: 1.5rem;
+            border-radius: 0;
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .pros {
+            border-left: 3px solid var(--text);
+        }
+
+        .cons {
+            border-left: 3px solid var(--muted);
+        }
+
+        .pros h4, .cons h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .pros ul, .cons ul {
+            list-style: none;
+        }
+
+        .pros li, .cons li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .pros li:before {
+            content: "+";
+            position: absolute;
+            left: 0;
+            color: #34c759;
+            font-weight: 600;
+        }
+
+        .cons li:before {
+            content: "−";
+            position: absolute;
+            left: 0;
+            color: #ff3b30;
+            font-weight: 600;
+        }
+
+        .provider-cta {
+            margin-top: 1.5rem;
+        }
+
+        .provider-cta .cta-button {
+            background: var(--text);
+            color: var(--surface);
+            border: 1px solid var(--text);
+        }
+
+        .provider-cta .cta-button:hover {
+            background: var(--linkHover);
+            border-color: var(--linkHover);
+            color: var(--surface);
+            text-decoration: none;
+        }
+
+        /* Connection Types */
+        .connection-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .connection-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 0;
+            border: 1px solid var(--border);
+            border-top: 2px solid var(--text);
+            transition: all 0.15s ease;
+        }
+
+        .connection-card:hover {
+            background: #fafafa;
+        }
+
+        .connection-card h3 {
+            color: var(--text);
+            margin-top: 0;
+            font-weight: 600;
+        }
+
+        /* Decision Guide */
+        .decision-guide {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            margin: 0;
+            border: none;
+        }
+
+        .decision-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--surface);
+            border-radius: 0;
+            border-left: 3px solid var(--text);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--text);
+            transition: all 0.15s ease;
+        }
+
+        .decision-item:hover {
+            background: #fafafa;
+        }
+
+        .decision-item h4 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* FAQ */
+        .faq {
+            margin: 2rem 0;
+        }
+
+        .faq details {
+            background: var(--surface);
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border-radius: 0;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--text);
+            transition: all 0.15s ease;
+        }
+
+        .faq details:hover {
+            background: #fafafa;
+        }
+
+        .faq summary {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+            cursor: pointer;
+            padding: 0.5rem 0;
+            letter-spacing: -0.01em;
+        }
+
+        .faq summary:hover {
+            color: var(--linkHover);
+        }
+
+        .faq p {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            color: #4a5568;
+        }
+
+        /* Trust & Disclosure */
+        .trust-section {
+            background: transparent;
+            padding: 48px 0;
+            border-radius: 0;
+            margin: 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .trust-section p {
+            color: var(--muted);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: transparent;
+            color: var(--text);
+            padding: 48px 0;
+            text-align: center;
+            margin-top: 0;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0b0b0b;
+                --surface: #111111;
+                --text: #f3f4f6;
+                --muted: #9ca3af;
+                --border: #222222;
+                --link: #f3f4f6;
+                --linkHover: #2563eb;
+            }
+
+            .comparison-table thead {
+                background: #1a1a1a;
+            }
+
+            .comparison-table tbody tr:nth-child(even) {
+                background-color: #0f0f0f;
+            }
+
+            .comparison-table tbody tr:hover {
+                background-color: #1a1a1a;
+            }
+
+            .connection-card:hover,
+            .decision-item:hover,
+            .faq details:hover {
+                background: #1a1a1a;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .hero {
+                padding: 48px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .subtitle {
+                font-size: 0.85em;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .comparison-table {
+                font-size: 0.875rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 16px;
+            }
+
+            .provider-logo {
+                height: 36px;
+            }
+
+            .comparison-table img.provider-logo {
+                height: 36px !important;
+                min-height: 36px !important;
+            }
+
+            .provider-logo-lg {
+                height: 40px;
+            }
+
+            .provider-section {
+                padding: 32px 0;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .connection-types {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 0.9375rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            section {
+                padding: 32px 0;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+                line-height: 1.2;
+            }
+
+            .subtitle {
+                font-size: 0.8em;
+                margin-top: 0.5rem;
+            }
+
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                font-size: 0.8125rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px 12px;
+                white-space: nowrap;
+            }
+
+            .provider-logo {
+                height: 32px;
+            }
+
+            .comparison-table img.provider-logo {
+                height: 32px !important;
+                min-height: 32px !important;
+            }
+
+            .provider-logo-lg {
+                height: 36px;
+            }
+
+            .provider-section {
+                padding: 24px 0;
+            }
+
+            .provider-section h2 {
+                font-size: 1.25rem;
+            }
+
+            .connection-card {
+                padding: 1.5rem;
+            }
+
+            .faq details {
+                padding: 1rem;
+            }
+
+            .cta-button {
+                padding: 12px 20px;
+                font-size: 0.875rem;
+            }
+        }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 0.85em;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.7rem 0.5rem;
+            }
+
+            .provider-logo {
+                height: 18px;
+            }
+
+            .provider-logo-lg {
+                height: 50px;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .connection-types {
+                grid-template-columns: 1fr;
+            }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">KalyteroInternet.gr</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Καλύτερο Σταθερό Internet στην Ελλάδα<br><span class="subtitle">Σύγκριση Παρόχων (2026)</span></h1>
+            <p>Σε αυτόν τον οδηγό συγκρίνουμε τους βασικούς παρόχους σταθερού internet στην Ελλάδα (ADSL, VDSL, Fiber) για να διαλέξεις αυτό που σου ταιριάζει. Βρες την καλύτερη προσφορά με ταχύτητες, τιμές και όρους συμβολαίου.</p>
+            <a href="#comparison" class="cta-button">Έλεγξε ποιο internet πιάνει στο σπίτι σου</a>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <!-- Comparison Table -->
+            <section id="comparison">
+                <h2>Σύγκριση Παρόχων Σταθερού Internet</h2>
+                <p>Σε αυτή τη σελίδα συγκρίνουμε τους βασικούς παρόχους σταθερού internet στην Ελλάδα, με βάση τον τύπο σύνδεσης (FTTH, VDSL, FWA), τις ταχύτητες και τα πλεονεκτήματα κάθε επιλογής. Ο έλεγχος διαθεσιμότητας γίνεται ανά περιοχή.</p>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Πάροχος</th>
+                            <th>Τύπος Σύνδεσης</th>
+                            <th>Ταχύτητα</th>
+                            <th>Συμβόλαιο</th>
+                            <th>Ιδανικό για</th>
+                            <th>Ενέργεια</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/logos/vodafone.png" alt="Vodafone σταθερό internet" class="provider-logo"></td>
+                            <td>FTTH (οπτική ίνα έως το σπίτι) ή/και FWA (σταθερό ασύρματο) ανά περιοχή</td>
+                            <td>Έως 1Gbps (σε FTTH), ανάλογα με διαθεσιμότητα</td>
+                            <td>12-24 μήνες</td>
+                            <td>Νοικοκυριά που θέλουν υψηλές ταχύτητες/streaming</td>
+                            <td class="cta-cell"><a href="{{AFFILIATE_LINK}}" class="cta-link">Έλεγχος διαθεσιμότητας στην περιοχή σου</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/logos/cosmote.png" alt="Cosmote πάροχος σταθερού internet" class="provider-logo"></td>
+                            <td>ADSL/VDSL/FTTH ανά περιοχή</td>
+                            <td>Έως 24Mbps (ADSL), έως 50Mbps (VDSL), και Fiber επιλογές (π.χ. 100/200/300/1Gbps+) ανά διαθεσιμότητα</td>
+                            <td>12-24 μήνες</td>
+                            <td>Σταθερή κάλυψη, επιλογές από βασικές έως fiber</td>
+                            <td class="cta-cell"><a href="{{AFFILIATE_LINK}}" class="cta-link">Έλεγχος διαθεσιμότητας στην περιοχή σου</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/logos/nova.png" alt="Nova σταθερό internet" class="provider-logo"></td>
+                            <td>FTTH ή FTTC (ανά τεχνική εφικτότητα)</td>
+                            <td>Έως 100Mbps (Fiber 100, FTTH ή έως 100 μέσω FTTC όπου ισχύει)</td>
+                            <td>24 μήνες</td>
+                            <td>Χρήστες που θέλουν ισορροπία τιμής/απόδοσης όπου υπάρχει κάλυψη</td>
+                            <td class="cta-cell"><a href="{{AFFILIATE_LINK}}" class="cta-link">Έλεγχος διαθεσιμότητας στην περιοχή σου</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/logos/inalan.png" alt="Inalan πάροχος σταθερού internet" class="provider-logo"></td>
+                            <td>FTTH (οπτική ίνα)</td>
+                            <td>Συμμετρικές επιλογές (π.χ. 300/300 και 1000/1000 Mbps) ανά περιοχή/πακέτο</td>
+                            <td>12-24 μήνες</td>
+                            <td>Απαιτητικοί χρήστες, gaming, μεγάλα uploads (όπου υπάρχει κάλυψη Inalan)</td>
+                            <td class="cta-cell"><a href="{{AFFILIATE_LINK}}" class="cta-link">Έλεγχος διαθεσιμότητας στην περιοχή σου</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/logos/skytelecom.png" alt="SkyTelecom σταθερό internet" class="provider-logo"></td>
+                            <td>Σταθερό ασύρματο (WISP/FWA) χωρίς ανάγκη τηλεφωνικής γραμμής (ανά περιοχή)</td>
+                            <td>Έως 50/100/300/500 Mbps ανά πακέτο και κάλυψη</td>
+                            <td>12-24 μήνες</td>
+                            <td>Περιοχές χωρίς εύκολη πρόσβαση σε FTTH ή για γρήγορη εγκατάσταση (όπου υπάρχει κάλυψη)</td>
+                            <td class="cta-cell"><a href="{{AFFILIATE_LINK}}" class="cta-link">Έλεγχος διαθεσιμότητας στην περιοχή σου</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Provider Details -->
+            <section id="providers">
+                <h2>Αναλυτική Παρουσίαση Παρόχων</h2>
+
+                <article class="provider-section">
+                    <div class="provider-header">
+                        <img src="assets/logos/vodafone.png" alt="Vodafone σταθερό internet" class="provider-logo-lg">
+                        <h2>Πληροφορίες παρόχου</h2>
+                    </div>
+                    <p>Η Vodafone προσφέρει υψηλής ταχύτητας συνδέσεις FTTH (οπτική ίνα έως το σπίτι) σε επιλεγμένες περιοχές, καθώς και FWA (σταθερό ασύρματο) σε περιοχές όπου δεν υπάρχει διαθεσιμότητα Fiber. Με ταχύτητες έως 1Gbps σε FTTH, είναι ιδανική για οικιακές και επαγγελματικές χρήσεις που απαιτούν υψηλή ταχύτητα και σταθερότητα.</p>
+                    
+                    <h3>Τύπος σύνδεσης & ταχύτητες (ενδεικτικά)</h3>
+                    <ul class="features-list">
+                        <li>FTTH (Fiber to the Home): έως 1Gbps download/upload</li>
+                        <li>FWA (Fixed Wireless Access): έως 100-300 Mbps ανά περιοχή</li>
+                        <li>Απεριόριστα δεδομένα</li>
+                        <li>Συμβόλαια 12-24 μηνών</li>
+                    </ul>
+
+                    <h3>Χαρακτηριστικά</h3>
+                    <ul class="features-list">
+                        <li>Router WiFi 6 συμπεριλαμβάνεται</li>
+                        <li>24/7 τεχνική υποστήριξη</li>
+                        <li>Δωρεάν εγκατάσταση (υπό όρους)</li>
+                        <li>Καλή κάλυψη σε αστικές περιοχές</li>
+                    </ul>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Υπέρ</h4>
+                            <ul>
+                                <li>Υψηλές ταχύτητες FTTH (έως 1Gbps)</li>
+                                <li>Σταθερή σύνδεση με χαμηλό latency</li>
+                                <li>Εναλλακτική FWA όπου δεν υπάρχει Fiber</li>
+                                <li>Καλή υποστήριξη πελατών</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Κατά</h4>
+                            <ul>
+                                <li>Περιορισμένη διαθεσιμότητα FTTH εκτός αστικών περιοχών</li>
+                                <li>FWA εξαρτάται από σήμα και τοποθεσία</li>
+                                <li>Συμβόλαιο 12-24 μηνών</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Για ποιον είναι κατάλληλος</h3>
+                    <p>Ιδανική για νοικοκυριά που θέλουν υψηλές ταχύτητες για streaming 4K, gaming, τηλεργασία με video calls, και πολλαπλές συσκευές ταυτόχρονα. Επίσης κατάλληλη για επαγγελματίες που χρειάζονται γρήγορη μεταφόρτωση αρχείων και σταθερή σύνδεση.</p>
+                    <p>Η τελική ταχύτητα και η διαθεσιμότητα εξαρτώνται από τη διεύθυνση και την τεχνολογία που υποστηρίζεται στην περιοχή.</p>
+
+                    <div class="provider-cta">
+                        <a href="{{AFFILIATE_LINK}}" class="cta-button">Έλεγχος διαθεσιμότητας στην περιοχή σου</a>
+                    </div>
+                </article>
+
+                <article class="provider-section">
+                    <div class="provider-header">
+                        <img src="assets/logos/cosmote.png" alt="Cosmote πάροχος σταθερού internet" class="provider-logo-lg">
+                        <h2>Πληροφορίες παρόχου</h2>
+                    </div>
+                    <p>Η Cosmote είναι ο μεγαλύτερος πάροχος σταθερού internet στην Ελλάδα, με ευρεία κάλυψη ADSL, VDSL και FTTH. Προσφέρει επιλογές από βασικές ταχύτητες έως υψηλές Fiber συνδέσεις, καλύπτοντας όλες τις κατηγορίες χρηστών.</p>
+                    
+                    <h3>Τύπος σύνδεσης & ταχύτητες (ενδεικτικά)</h3>
+                    <ul class="features-list">
+                        <li>ADSL: έως 24 Mbps download</li>
+                        <li>VDSL: έως 50 Mbps download</li>
+                        <li>FTTH: επιλογές 100/200/300/1Gbps+ download/upload</li>
+                        <li>Απεριόριστα δεδομένα</li>
+                        <li>Συμβόλαια 12-24 μηνών</li>
+                    </ul>
+
+                    <h3>Χαρακτηριστικά</h3>
+                    <ul class="features-list">
+                        <li>Ευρεία κάλυψη σε όλη την Ελλάδα</li>
+                        <li>Δωρεάν router WiFi</li>
+                        <li>Καλή διαθεσιμότητα σε αγροτικές περιοχές</li>
+                        <li>Ευέλικτα πακέτα</li>
+                    </ul>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Υπέρ</h4>
+                            <ul>
+                                <li>Ευρεία κάλυψη (ADSL/VDSL/FTTH)</li>
+                                <li>Επιλογές από βασικές έως Fiber</li>
+                                <li>Σταθερή υπηρεσία με καλή υποδομή</li>
+                                <li>Καλή διαθεσιμότητα σε αγροτικές περιοχές</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Κατά</h4>
+                            <ul>
+                                <li>ADSL/VDSL ταχύτητες εξαρτώνται από απόσταση από κεντρικό</li>
+                                <li>Περιορισμένη διαθεσιμότητα Fiber σε ορισμένες περιοχές</li>
+                                <li>Ασύμμετρες ταχύτητες σε ADSL/VDSL (χαμηλότερο upload)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Για ποιον είναι κατάλληλος</h3>
+                    <p>Κατάλληλη για όλες τις κατηγορίες χρηστών: από βασική χρήση (ADSL) έως απαιτητικές εφαρμογές (Fiber). Ιδανική για οικογένειες που αναζητούν αξιοπιστία, streaming, τηλεργασία, και όσους ζουν σε περιοχές με περιορισμένες επιλογές.</p>
+                    <p>Η τελική ταχύτητα και η διαθεσιμότητα εξαρτώνται από τη διεύθυνση και την τεχνολογία που υποστηρίζεται στην περιοχή.</p>
+
+                    <div class="provider-cta">
+                        <a href="{{AFFILIATE_LINK}}" class="cta-button">Έλεγχος διαθεσιμότητας στην περιοχή σου</a>
+                    </div>
+                </article>
+
+                <article class="provider-section">
+                    <div class="provider-header">
+                        <img src="assets/logos/nova.png" alt="Nova σταθερό internet" class="provider-logo-lg">
+                        <h2>Πληροφορίες παρόχου</h2>
+                    </div>
+                    <p>Η Nova προσφέρει Fiber συνδέσεις FTTH ή FTTC (ανά τεχνική εφικτότητα) σε επιλεγμένες περιοχές. Εστιάζει στην ισορροπία μεταξύ τιμής και απόδοσης, προσφέροντας ταχύτητες έως 100Mbps όπου υπάρχει κάλυψη.</p>
+                    
+                    <h3>Τύπος σύνδεσης & ταχύτητες (ενδεικτικά)</h3>
+                    <ul class="features-list">
+                        <li>FTTH (Fiber to the Home): έως 100 Mbps</li>
+                        <li>FTTC (Fiber to the Cabinet): έως 100 Mbps μέσω VDSL</li>
+                        <li>Απεριόριστα δεδομένα</li>
+                        <li>Συμβόλαιο 24 μηνών</li>
+                    </ul>
+
+                    <h3>Χαρακτηριστικά</h3>
+                    <ul class="features-list">
+                        <li>Router WiFi συμπεριλαμβάνεται</li>
+                        <li>Καλή υποστήριξη πελατών</li>
+                        <li>Ισορροπημένες τιμές</li>
+                        <li>Σταθερή υπηρεσία</li>
+                    </ul>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Υπέρ</h4>
+                            <ul>
+                                <li>Ισορροπία τιμής/απόδοσης</li>
+                                <li>Σταθερή Fiber σύνδεση (FTTH)</li>
+                                <li>Καλή για streaming και καθημερινή χρήση</li>
+                                <li>Αξιόπιστη υπηρεσία</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Κατά</h4>
+                            <ul>
+                                <li>Περιορισμένη κάλυψη σε συγκεκριμένες περιοχές</li>
+                                <li>Μέγιστη ταχύτητα έως 100 Mbps (όχι 1Gbps)</li>
+                                <li>Συμβόλαιο 24 μηνών υποχρεωτικό</li>
+                                <li>FTTC εξαρτάται από απόσταση από cabinet</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Για ποιον είναι κατάλληλος</h3>
+                    <p>Ιδανική για χρήστες που αναζητούν καλή ισορροπία μεταξύ τιμής και απόδοσης, οικογένειες με μέτριες έως υψηλές ανάγκες (streaming HD, gaming, τηλεργασία), και όσους θέλουν Fiber αλλά όχι απαραίτητα τις υψηλότερες ταχύτητες.</p>
+                    <p>Η τελική ταχύτητα και η διαθεσιμότητα εξαρτώνται από τη διεύθυνση και την τεχνολογία που υποστηρίζεται στην περιοχή.</p>
+
+                    <div class="provider-cta">
+                        <a href="{{AFFILIATE_LINK}}" class="cta-button">Έλεγχος διαθεσιμότητας στην περιοχή σου</a>
+                    </div>
+                </article>
+
+                <article class="provider-section">
+                    <div class="provider-header">
+                        <img src="assets/logos/inalan.png" alt="Inalan πάροχος σταθερού internet" class="provider-logo-lg">
+                        <h2>Πληροφορίες παρόχου</h2>
+                    </div>
+                    <p>Η Inalan είναι εξειδικευμένη σε FTTH (οπτική ίνα) συνδέσεις με συμμετρικές ταχύτητες, προσφέροντας ίδια ταχύτητα upload και download. Είναι ιδανική για απαιτητικούς χρήστες που χρειάζονται υψηλές ταχύτητες upload, gaming με χαμηλό latency, και επαγγελματικές εφαρμογές.</p>
+                    
+                    <h3>Τύπος σύνδεσης & ταχύτητες (ενδεικτικά)</h3>
+                    <ul class="features-list">
+                        <li>FTTH (Fiber to the Home): συμμετρικές επιλογές</li>
+                        <li>Πακέτα π.χ. 300/300 Mbps (download/upload)</li>
+                        <li>Πακέτα π.χ. 1000/1000 Mbps (1Gbps συμμετρικό)</li>
+                        <li>Απεριόριστα δεδομένα</li>
+                        <li>Συμβόλαια 12-24 μηνών</li>
+                    </ul>
+
+                    <h3>Χαρακτηριστικά</h3>
+                    <ul class="features-list">
+                        <li>Συμμετρικές ταχύτητες (ίδιο upload/download)</li>
+                        <li>Χαμηλό latency, ιδανικό για gaming</li>
+                        <li>Premium router WiFi</li>
+                        <li>Εξειδικευμένη υποστήριξη</li>
+                    </ul>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Υπέρ</h4>
+                            <ul>
+                                <li>Συμμετρικές ταχύτητες (υψηλό upload)</li>
+                                <li>Χαμηλό latency, ιδανικό για gaming</li>
+                                <li>Σταθερή Fiber σύνδεση</li>
+                                <li>Εξειδικευμένη για απαιτητικούς χρήστες</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Κατά</h4>
+                            <ul>
+                                <li>Πολύ περιορισμένη κάλυψη (συγκεκριμένες περιοχές)</li>
+                                <li>Δεν είναι διαθέσιμη παντού στην Ελλάδα</li>
+                                <li>Απαιτεί εγκατάσταση Fiber υποδομής</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Για ποιον είναι κατάλληλος</h3>
+                    <p>Ιδανική για απαιτητικούς χρήστες, gamers που χρειάζονται χαμηλό latency, content creators που κάνουν μεγάλα uploads, τηλεργασία με συχνές video calls και μεταφορτώσεις, και επαγγελματίες που χρειάζονται συμμετρικές υψηλές ταχύτητες.</p>
+                    <p>Η τελική ταχύτητα και η διαθεσιμότητα εξαρτώνται από τη διεύθυνση και την τεχνολογία που υποστηρίζεται στην περιοχή.</p>
+
+                    <div class="provider-cta">
+                        <a href="{{AFFILIATE_LINK}}" class="cta-button">Έλεγχος διαθεσιμότητας στην περιοχή σου</a>
+                    </div>
+                </article>
+
+                <article class="provider-section">
+                    <div class="provider-header">
+                        <img src="assets/logos/skytelecom.png" alt="SkyTelecom σταθερό internet" class="provider-logo-lg">
+                        <h2>Πληροφορίες παρόχου</h2>
+                    </div>
+                    <p>Η SkyTelecom προσφέρει σταθερό ασύρματο internet (WISP/FWA) χωρίς ανάγκη τηλεφωνικής γραμμής. Είναι μια εναλλακτική λύση για περιοχές όπου δεν υπάρχει εύκολη πρόσβαση σε FTTH ή όπου η εγκατάσταση Fiber είναι δύσκολη. Προσφέρει γρήγορη εγκατάσταση και ταχύτητες έως 500 Mbps.</p>
+                    
+                    <h3>Τύπος σύνδεσης & ταχύτητες (ενδεικτικά)</h3>
+                    <ul class="features-list">
+                        <li>Σταθερό ασύρματο (WISP/FWA): χωρίς τηλεφωνική γραμμή</li>
+                        <li>Πακέτα: έως 50/100/300/500 Mbps ανά πακέτο</li>
+                        <li>Απεριόριστα δεδομένα</li>
+                        <li>Συμβόλαια 12-24 μηνών</li>
+                    </ul>
+
+                    <h3>Χαρακτηριστικά</h3>
+                    <ul class="features-list">
+                        <li>Γρήγορη εγκατάσταση (χωρίς έργα)</li>
+                        <li>Δεν χρειάζεται τηλεφωνική γραμμή</li>
+                        <li>Router/WiFi συμπεριλαμβάνεται</li>
+                        <li>Εναλλακτική για περιοχές χωρίς Fiber</li>
+                    </ul>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Υπέρ</h4>
+                            <ul>
+                                <li>Γρήγορη εγκατάσταση (χωρίς έργα)</li>
+                                <li>Δεν χρειάζεται τηλεφωνική γραμμή</li>
+                                <li>Εναλλακτική για περιοχές χωρίς FTTH</li>
+                                <li>Ταχύτητες έως 500 Mbps</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Κατά</h4>
+                            <ul>
+                                <li>Εξάρτηση από σήμα και τοποθεσία</li>
+                                <li>Μπορεί να επηρεαστεί από καιρικές συνθήκες</li>
+                                <li>Περιορισμένη κάλυψη (όπου υπάρχει υποδομή)</li>
+                                <li>Latency μπορεί να είναι υψηλότερο από Fiber</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Για ποιον είναι κατάλληλος</h3>
+                    <p>Ιδανική για περιοχές χωρίς εύκολη πρόσβαση σε FTTH, για όσους θέλουν γρήγορη εγκατάσταση χωρίς έργα, για αγροτικές ή απομακρυσμένες περιοχές, και για χρήστες που χρειάζονται καλή ταχύτητα αλλά δεν έχουν τηλεφωνική γραμμή ή Fiber διαθεσιμότητα.</p>
+                    <p>Η τελική ταχύτητα και η διαθεσιμότητα εξαρτώνται από τη διεύθυνση και την τεχνολογία που υποστηρίζεται στην περιοχή.</p>
+
+                    <div class="provider-cta">
+                        <a href="{{AFFILIATE_LINK}}" class="cta-button">Έλεγχος διαθεσιμότητας στην περιοχή σου</a>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Connection Types -->
+            <section id="connection-types">
+                <h2>Τύποι Σύνδεσης Internet</h2>
+                <p>Πριν διαλέξεις πάροχο, είναι σημαντικό να κατανοήσεις τους διαφορετικούς τύπους συνδέσεων που διατίθενται στην Ελλάδα.</p>
+
+                <div class="connection-types">
+                    <article class="connection-card">
+                        <h3>ADSL</h3>
+                        <p>Το ADSL (Asymmetric Digital Subscriber Line) χρησιμοποιεί την υπάρχουσα τηλεφωνική γραμμή για να μεταδώσει internet. Προσφέρει ταχύτητες από 10 έως 24 Mbps, με συνήθως χαμηλότερη ταχύτητα upload από download.</p>
+                        <p><strong>Πλεονεκτήματα:</strong> Ευρεία διαθεσιμότητα, οικονομική επιλογή, δεν χρειάζεται νέα υποδομή.</p>
+                        <p><strong>Μειονεκτήματα:</strong> Περιορισμένες ταχύτητες, η απόδοση εξαρτάται από την απόσταση από το κεντρικό.</p>
+                    </article>
+
+                    <article class="connection-card">
+                        <h3>VDSL</h3>
+                        <p>Το VDSL (Very-high-bit-rate Digital Subscriber Line) είναι η βελτιωμένη έκδοση του ADSL. Χρησιμοποιεί επίσης τηλεφωνική γραμμή αλλά με καλύτερη τεχνολογία, προσφέροντας ταχύτητες από 24 έως 100 Mbps.</p>
+                        <p><strong>Πλεονεκτήματα:</strong> Καλύτερες ταχύτητες από ADSL, καλή για streaming και gaming, ευρεία διαθεσιμότητα.</p>
+                        <p><strong>Μειονεκτήματα:</strong> Η απόδοση εξαρτάται από την απόσταση, δεν φτάνει τις ταχύτητες Fiber.</p>
+                    </article>
+
+                    <article class="connection-card">
+                        <h3>Fiber (FTTH)</h3>
+                        <p>Το Fiber (FTTH - Fiber to the Home) είναι η πιο σύγχρονη τεχνολογία, με οπτικές ίνες που φτάνουν μέχρι το σπίτι σου. Προσφέρει ταχύτητες από 100 Mbps έως 1 Gbps και άνω.</p>
+                        <p><strong>Πλεονεκτήματα:</strong> Υψηλότερες ταχύτητες, συμμετρική ταχύτητα upload/download, χαμηλή καθυστέρηση, σταθερή σύνδεση.</p>
+                        <p><strong>Μειονεκτήματα:</strong> Περιορισμένη διαθεσιμότητα, υψηλότερες τιμές, απαιτεί νέα υποδομή.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Decision Guide -->
+            <section id="decision-guide">
+                <h2>Πώς να Διαλέξεις Πάροχο</h2>
+                <p>Η επιλογή του κατάλληλου παρόχου εξαρτάται από τις ανάγκες σου, τον προϋπολογισμό σου και τη διαθεσιμότητα στην περιοχή σου.</p>
+
+                <div class="decision-guide">
+                    <div class="decision-item">
+                        <h4>Αν μένω σε πολυκατοικία</h4>
+                        <p>Σε αστικές περιοχές και πολυκατοικίες, συνήθως υπάρχει καλύτερη διαθεσιμότητα VDSL και Fiber. Ελέγξε τη διαθεσιμότητα Fiber πρώτα, καθώς προσφέρει την καλύτερη εμπειρία. Αν δεν είναι διαθέσιμο, το VDSL είναι μια εξαιρετική εναλλακτική.</p>
+                    </div>
+
+                    <div class="decision-item">
+                        <h4>Αν δουλεύω από το σπίτι</h4>
+                        <p>Για remote work, χρειάζεσαι σταθερή σύνδεση με καλή ταχύτητα upload για video calls και μεταφόρτωση αρχείων. Προτείνεται Fiber (αν είναι διαθέσιμο) ή VDSL με τουλάχιστον 50 Mbps. Η σταθερότητα είναι πιο σημαντική από την απόλυτη ταχύτητα.</p>
+                    </div>
+
+                    <div class="decision-item">
+                        <h4>Αν βλέπω streaming</h4>
+                        <p>Για streaming HD/4K, gaming και πολλαπλές συσκευές ταυτόχρονα, χρειάζεσαι τουλάχιστον 50-100 Mbps. Το Fiber είναι ιδανικό, αλλά και το VDSL μπορεί να καλύψει τις ανάγκες σου αν η περιοχή σου υποστηρίζει καλές ταχύτητες.</p>
+                    </div>
+
+                    <div class="decision-item">
+                        <h4>Αν θέλω τη χαμηλότερη τιμή</h4>
+                        <p>Αν έχεις περιορισμένο budget και βασικές ανάγκες (browsing, email, social media), το ADSL μπορεί να είναι αρκετό. Ωστόσο, σκέψου αν η διαφορά τιμής αξίζει τη μείωση στην ποιότητα υπηρεσίας.</p>
+                    </div>
+
+                    <div class="decision-item">
+                        <h4>Αν θέλω Fiber</h4>
+                        <p>Το Fiber είναι η καλύτερη επιλογή για ταχύτητα και σταθερότητα, αλλά δεν είναι διαθέσιμο παντού. Ελέγξε πρώτα τη διαθεσιμότητα στην περιοχή σου. Αν είναι διαθέσιμο, αξίζει την επένδυση, ειδικά αν χρησιμοποιείς internet έντονα.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq">
+                <h2>Συχνές Ερωτήσεις</h2>
+                <div class="faq">
+                    <details>
+                        <summary>Ποιος πάροχος είναι ο πιο οικονομικός;</summary>
+                        <p>Ο πιο οικονομικός πάροχος εξαρτάται από την περιοχή και τις ανάγκες σου. Γενικά, οι παρόχοι με ADSL προσφέρουν τις χαμηλότερες τιμές, αλλά με περιορισμένες ταχύτητες. Συνήθως, οι παρόχοι με VDSL προσφέρουν καλή ισορροπία μεταξύ τιμής και απόδοσης. Συνιστάται να συγκρίνεις τις προσφορές όλων των παρόχων στην περιοχή σου.</p>
+                    </details>
+
+                    <details>
+                        <summary>Υπάρχει διαθεσιμότητα Fiber παντού στην Ελλάδα;</summary>
+                        <p>Όχι, το Fiber δεν είναι διαθέσιμο παντού. Η διαθεσιμότητα είναι μεγαλύτερη σε αστικές περιοχές, πολυκατοικίες και νέες οικοδομές. Σε αγροτικές περιοχές και παλιότερες περιοχές, η διαθεσιμότητα είναι περιορισμένη. Πρέπει πάντα να ελέγχεις τη διαθεσιμότητα στην ακριβή διεύθυνση σου πριν κάνεις παραγγελία.</p>
+                    </details>
+
+                    <details>
+                        <summary>Τι συμβόλαιο έχει το σταθερό internet;</summary>
+                        <p>Τα συμβόλαια σταθερού internet στην Ελλάδα είναι συνήθως 12 ή 24 μήνες. Κάποιοι πάροχοι προσφέρουν και μηνιαία συμβόλαια χωρίς δεσμεύσεις, αλλά με υψηλότερες τιμές. Κατά τη λήξη του συμβολαίου, μπορείς να το ανανεώσεις ή να αλλάξεις πάροχο. Προσοχή: η πρόωρη διακοπή μπορεί να συνεπάγεται χρεώσεις.</p>
+                    </details>
+
+                    <details>
+                        <summary>Πόσος χρόνος ενεργοποίησης χρειάζεται;</summary>
+                        <p>Ο χρόνος ενεργοποίησης εξαρτάται από τον πάροχο και τον τύπο σύνδεσης. Για ADSL/VDSL, συνήθως χρειάζονται 5-15 εργάσιμες ημέρες, ανάλογα με την περιοχή. Για Fiber, μπορεί να χρειαστούν 15-30 εργάσιμες ημέρες, καθώς μπορεί να απαιτείται εγκατάσταση νέας υποδομής. Οι πάροχοι συνήθως δίνουν εκτίμηση κατά την παραγγελία.</p>
+                    </details>
+
+                    <details>
+                        <summary>Μπορώ να αλλάξω πάροχο;</summary>
+                        <p>Ναι, μπορείς να αλλάξεις πάροχο. Αν είσαι σε συμβόλαιο, πρέπει να περιμένεις τη λήξη του ή να πληρώσεις την πρόωρη διακοπή (αν προβλέπεται). Η διαδικασία αλλαγής παρόχου είναι απλή: επικοινωνείς με τον νέο πάροχο, ο οποίος θα χειριστεί τη μεταφορά της γραμμής. Συνήθως δεν χρειάζεται να διακόψεις πρώτα την παλιά σύνδεση.</p>
+                    </details>
+
+                    <details>
+                        <summary>Τι ισχύει για περιοχές εκτός πόλης;</summary>
+                        <p>Σε αγροτικές περιοχές και περιοχές εκτός πόλης, η διαθεσιμότητα Fiber είναι πολύ περιορισμένη. Συνήθως διατίθενται ADSL και VDSL, με ταχύτητες που εξαρτώνται από την απόσταση από το κεντρικό. Οι ταχύτητες μπορεί να είναι χαμηλότερες από αυτές που διαφημίζονται. Συνιστάται να ρωτήσεις συγκεκριμένα για τη διαθεσιμότητα και τις πραγματικές ταχύτητες στην περιοχή σου.</p>
+                    </details>
+
+                    <details>
+                        <summary>Γιατί οι ταχύτητες γράφονται 'έως';</summary>
+                        <p>Οι ταχύτητες γράφονται με τον όρο "έως" επειδή η τελική ταχύτητα που θα λάβεις εξαρτάται από πολλούς παράγοντες: τον τύπο τεχνολογίας (ADSL/VDSL/FTTH/FWA), την κάλυψη στην περιοχή σου, την απόσταση από το κεντρικό ή το cabinet (για ADSL/VDSL), την ποιότητα της εγκατάστασης, και τη διαθεσιμότητα στην ακριβή διεύθυνση σου. Για αυτόν τον λόγο, οι πάροχοι αναφέρουν "έως" για να υποδείξουν τη μέγιστη δυνατή ταχύτητα, η οποία μπορεί να διαφέρει στην πράξη.</p>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Trust & Disclosure -->
+            <section class="trust-section">
+                <h2>Διαφάνεια & Ενημέρωση</h2>
+                <p><strong>Τελευταία ενημέρωση:</strong> 2026</p>
+                <p>Οι πληροφορίες σε αυτή τη σελίδα βασίζονται σε δημόσια διαθέσιμα δεδομένα και γενικές πληροφορίες για τους παρόχους σταθερού internet στην Ελλάδα. Οι προσφορές, οι τιμές και οι όροι μπορεί να διαφέρουν ανάλογα με την περιοχή και την περίοδο.</p>
+                <p><strong>Disclosure:</strong> Ορισμένοι σύνδεσμοι σε αυτή τη σελίδα μπορεί να είναι συνεργατικοί (affiliate). Αυτό σημαίνει ότι ενδέχεται να λάβουμε προμήθεια αν κάνεις αγορά μέσω αυτών των συνδέσμων. Αυτό δεν επηρεάζει την αξιολόγηση, τη σύγκριση ή τις συστάσεις μας. Προτείνουμε πάντα να συγκρίνεις προσφορές από πολλούς παρόχους πριν αποφασίσεις.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 KalyteroInternet.gr - Οδηγός Σύγκρισης Παρόχων Internet</p>
+            <p>Όλες οι πληροφορίες παρέχονται για ενημερωτικούς σκοπούς.</p>
+        </div>
+    </footer>
+</body>
+</html>
