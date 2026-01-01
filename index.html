@@ -291,6 +291,19 @@
             text-decoration: none;
         }
 
+        /* Screen Reader Only - Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         /* Mobile Cards View */
         .table-view {
             display: block;
@@ -319,9 +332,11 @@
         .provider-card-header {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
             gap: 1rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid var(--border);
+            position: relative;
         }
 
         .provider-card-header img {
@@ -1484,13 +1499,27 @@
                     cardHeader.className = 'provider-card-header';
                     
                     if (logoImg) {
+                        // If logo exists, show only logo (no visible text)
                         const headerImg = document.createElement('img');
                         headerImg.src = logoSrc;
-                        headerImg.alt = logoAlt;
+                        // Ensure alt text includes provider name for accessibility
+                        headerImg.alt = logoAlt || (providerName ? `${providerName} logo` : 'Provider logo');
                         cardHeader.appendChild(headerImg);
-                    }
-                    
-                    if (providerName) {
+                        
+                        // Add sr-only text for screen readers
+                        if (providerName) {
+                            const srOnly = document.createElement('span');
+                            srOnly.className = 'sr-only';
+                            srOnly.textContent = providerName;
+                            cardHeader.appendChild(srOnly);
+                        }
+                        
+                        // Add aria-label for accessibility
+                        if (providerName) {
+                            cardHeader.setAttribute('aria-label', providerName);
+                        }
+                    } else if (providerName) {
+                        // Fallback: if no logo, show provider name as visible text
                         const headerTitle = document.createElement('h3');
                         headerTitle.textContent = providerName;
                         cardHeader.appendChild(headerTitle);
