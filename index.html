@@ -291,6 +291,102 @@
             text-decoration: none;
         }
 
+        /* Mobile Cards View */
+        .table-view {
+            display: block;
+        }
+
+        .card-view {
+            display: none;
+        }
+
+        #providers-cards {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .provider-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .provider-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .provider-card-header img {
+            height: 40px;
+            width: auto;
+        }
+
+        .provider-card-header h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .provider-card-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .provider-card-field-label {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .provider-card-field-value {
+            font-size: 0.9375rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .provider-card-cta {
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .provider-card-cta .cta-link {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--text);
+            color: var(--surface);
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: all 0.2s ease;
+            border: 1px solid var(--text);
+        }
+
+        .provider-card-cta .cta-link:hover,
+        .provider-card-cta .cta-link:focus {
+            background: var(--linkHover);
+            border-color: var(--linkHover);
+            color: var(--surface);
+            text-decoration: none;
+            outline: 2px solid var(--linkHover);
+            outline-offset: 2px;
+        }
+
         /* Provider Logos */
         .provider-logo {
             height: 40px;
@@ -602,10 +698,48 @@
                 background-color: #1a1a1a;
             }
 
+            .provider-card {
+                background: #111;
+                border-color: #222;
+            }
+
+            .provider-card-header {
+                border-color: #222;
+            }
+
+            .provider-card-field-label {
+                color: #9ca3af;
+            }
+
+            .provider-card-cta {
+                border-color: #222;
+            }
+
             .connection-card:hover,
             .decision-item:hover,
             .faq details:hover {
                 background: #1a1a1a;
+            }
+        }
+
+        /* Mobile Cards - Show/Hide */
+        @media (max-width: 900px) {
+            .table-view {
+                display: none !important;
+            }
+
+            .card-view {
+                display: block !important;
+            }
+        }
+
+        @media (min-width: 901px) {
+            .table-view {
+                display: block !important;
+            }
+
+            .card-view {
+                display: none !important;
             }
         }
 
@@ -678,6 +812,18 @@
                 padding: 12px 24px;
                 font-size: 0.9375rem;
             }
+
+            .provider-card {
+                padding: 1.25rem;
+            }
+
+            .provider-card-header img {
+                height: 36px;
+            }
+
+            .provider-card-header h3 {
+                font-size: 1.125rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -723,6 +869,36 @@
             .comparison-table img.provider-logo {
                 height: 32px !important;
                 min-height: 32px !important;
+            }
+
+            .provider-card {
+                padding: 1rem;
+                gap: 0.875rem;
+            }
+
+            .provider-card-header {
+                padding-bottom: 0.875rem;
+            }
+
+            .provider-card-header img {
+                height: 32px;
+            }
+
+            .provider-card-header h3 {
+                font-size: 1rem;
+            }
+
+            .provider-card-field-label {
+                font-size: 0.75rem;
+            }
+
+            .provider-card-field-value {
+                font-size: 0.875rem;
+            }
+
+            .provider-card-cta .cta-link {
+                padding: 10px 16px;
+                font-size: 0.875rem;
             }
 
             .provider-logo-lg {
@@ -815,7 +991,7 @@
             <section id="comparison">
                 <h2>Σύγκριση Παρόχων Σταθερού Internet</h2>
                 <p>Σε αυτή τη σελίδα συγκρίνουμε τους βασικούς παρόχους σταθερού internet στην Ελλάδα, με βάση τον τύπο σύνδεσης (FTTH, VDSL, FWA), τις ταχύτητες και τα πλεονεκτήματα κάθε επιλογής. Ο έλεγχος διαθεσιμότητας γίνεται ανά περιοχή.</p>
-                <table class="comparison-table">
+                <table class="comparison-table table-view">
                     <thead>
                         <tr>
                             <th>Πάροχος</th>
@@ -869,6 +1045,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <div id="providers-cards" class="card-view"></div>
             </section>
 
             <!-- Provider Details -->
@@ -1260,5 +1437,119 @@
             <p>Τα λογότυπα και οι εμπορικές ονομασίες ανήκουν στους αντίστοιχους παρόχους. Το kalyterointernet.gr είναι ανεξάρτητο site σύγκρισης και δεν αποτελεί επίσημο συνεργάτη παρόχων, εκτός αν αναφέρεται ρητά.</p>
         </div>
     </footer>
+
+    <script>
+        // Convert comparison table to mobile cards
+        (function() {
+            function convertTableToCards() {
+                const table = document.querySelector('.comparison-table');
+                const cardsContainer = document.getElementById('providers-cards');
+                
+                if (!table || !cardsContainer) return;
+
+                const thead = table.querySelector('thead');
+                const tbody = table.querySelector('tbody');
+                
+                if (!thead || !tbody) return;
+
+                // Get headers (skip first and last - logo and CTA)
+                const headers = Array.from(thead.querySelectorAll('th')).map(th => th.textContent.trim());
+                
+                // Clear existing cards
+                cardsContainer.innerHTML = '';
+
+                // Process each row
+                const rows = tbody.querySelectorAll('tr');
+                rows.forEach((row, rowIndex) => {
+                    const cells = Array.from(row.querySelectorAll('td'));
+                    if (cells.length === 0) return;
+
+                    // Create card
+                    const card = document.createElement('div');
+                    card.className = 'provider-card';
+
+                    // Extract logo from first cell
+                    const logoImg = cells[0].querySelector('img');
+                    const logoAlt = logoImg ? logoImg.getAttribute('alt') : '';
+                    const logoSrc = logoImg ? logoImg.getAttribute('src') : '';
+                    
+                    // Extract provider name from alt text (e.g., "Vodafone σταθερό internet" -> "Vodafone")
+                    let providerName = '';
+                    if (logoAlt) {
+                        providerName = logoAlt.split(' ')[0];
+                    }
+
+                    // Create card header
+                    const cardHeader = document.createElement('div');
+                    cardHeader.className = 'provider-card-header';
+                    
+                    if (logoImg) {
+                        const headerImg = document.createElement('img');
+                        headerImg.src = logoSrc;
+                        headerImg.alt = logoAlt;
+                        cardHeader.appendChild(headerImg);
+                    }
+                    
+                    if (providerName) {
+                        const headerTitle = document.createElement('h3');
+                        headerTitle.textContent = providerName;
+                        cardHeader.appendChild(headerTitle);
+                    }
+                    
+                    card.appendChild(cardHeader);
+
+                    // Map headers to cells (skip first: logo, last: CTA)
+                    const dataHeaders = headers.slice(1, -1); // Skip "Πάροχος" and "Ενέργεια"
+                    const dataCells = cells.slice(1, -1); // Skip logo cell and CTA cell
+
+                    // Create fields for each data column
+                    dataHeaders.forEach((header, index) => {
+                        if (dataCells[index]) {
+                            const field = document.createElement('div');
+                            field.className = 'provider-card-field';
+                            
+                            const label = document.createElement('div');
+                            label.className = 'provider-card-field-label';
+                            label.textContent = header;
+                            
+                            const value = document.createElement('div');
+                            value.className = 'provider-card-field-value';
+                            value.textContent = dataCells[index].textContent.trim();
+                            
+                            field.appendChild(label);
+                            field.appendChild(value);
+                            card.appendChild(field);
+                        }
+                    });
+
+                    // Add CTA button (last cell)
+                    const ctaCell = cells[cells.length - 1];
+                    const ctaLink = ctaCell.querySelector('a.cta-link');
+                    
+                    if (ctaLink) {
+                        const ctaContainer = document.createElement('div');
+                        ctaContainer.className = 'provider-card-cta';
+                        
+                        const newCtaLink = document.createElement('a');
+                        newCtaLink.href = ctaLink.getAttribute('href');
+                        newCtaLink.className = 'cta-link';
+                        newCtaLink.textContent = ctaLink.textContent.trim();
+                        
+                        ctaContainer.appendChild(newCtaLink);
+                        card.appendChild(ctaContainer);
+                    }
+
+                    cardsContainer.appendChild(card);
+                });
+            }
+
+            // Run on DOM ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', convertTableToCards);
+            } else {
+                convertTableToCards();
+            }
+        })();
+    </script>
 </body>
 </html>
