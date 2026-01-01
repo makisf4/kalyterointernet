@@ -612,6 +612,13 @@
             transform: translateY(-2px);
         }
 
+        .floating-cta.is-hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
         /* Desktop: Show floating CTA with smaller styling */
         @media (min-width: 1024px) {
             .floating-cta {
@@ -1168,6 +1175,7 @@
                 
                 <section class="global-cta-block">
                     <a href="{{AFFILIATE_LINK}}"
+                       id="global-cta-top"
                        class="global-cta-button"
                        target="_blank"
                        rel="nofollow sponsored">Έλεγχος διαθεσιμότητας στην περιοχή σου</a>
@@ -1425,6 +1433,7 @@
                 
                 <section class="global-cta-block">
                     <a href="{{AFFILIATE_LINK}}"
+                       id="global-cta-bottom"
                        class="global-cta-button"
                        target="_blank"
                        rel="nofollow sponsored">Έλεγχος διαθεσιμότητας στην περιοχή σου</a>
@@ -1677,6 +1686,46 @@
 
             cta.appendChild(link);
             document.body.appendChild(cta);
+
+            // Smart hide: Hide floating CTA when inline CTAs are visible
+            function setupSmartHide() {
+                const floatingCta = document.querySelector('.floating-cta');
+                const inlineCtaTop = document.getElementById('global-cta-top');
+                const inlineCtaBottom = document.getElementById('global-cta-bottom');
+
+                if (!floatingCta || (!inlineCtaTop && !inlineCtaBottom)) return;
+
+                function checkVisibility() {
+                    let isAnyVisible = false;
+                    [inlineCtaTop, inlineCtaBottom].forEach(cta => {
+                        if (cta) {
+                            const rect = cta.getBoundingClientRect();
+                            const viewportHeight = window.innerHeight;
+                            // CTA is visible if it's in the viewport (with some margin)
+                            if (rect.top < viewportHeight * 0.7 && rect.bottom > viewportHeight * 0.3) {
+                                isAnyVisible = true;
+                            }
+                        }
+                    });
+                    floatingCta.classList.toggle('is-hidden', isAnyVisible);
+                }
+
+                const observer = new IntersectionObserver((entries) => {
+                    checkVisibility();
+                }, {
+                    threshold: [0, 0.3, 0.7, 1],
+                    rootMargin: '0px'
+                });
+
+                if (inlineCtaTop) observer.observe(inlineCtaTop);
+                if (inlineCtaBottom) observer.observe(inlineCtaBottom);
+
+                // Also check on scroll for better responsiveness
+                window.addEventListener('scroll', checkVisibility, { passive: true });
+            }
+
+            // Setup after a short delay to ensure inline CTAs are in DOM
+            setTimeout(setupSmartHide, 100);
         })();
     </script>
 </body>
