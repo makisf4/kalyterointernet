@@ -1094,9 +1094,47 @@
                 grid-template-columns: 1fr;
             }
 
+        /* HARD DEBUG: Floating CTA - Make it impossible to hide */
+        #floating-cta {
+            position: fixed !important;
+            top: 20px !important;
+            left: 20px !important;
+            right: auto !important;
+            bottom: auto !important;
+            z-index: 2147483647 !important;
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            transform: none !important;
+            outline: 6px solid lime !important;
+            background: rgba(0,0,0,0.08) !important;
+            padding: 6px !important;
+        }
+
+        #floating-cta .floating-cta__btn {
+            display: inline-block !important;
+            font-size: 18px !important;
+            padding: 14px 16px !important;
+        }
     </style>
 </head>
 <body>
+    <div style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999999;
+      background: #ff00ff;
+      color: white;
+      font-size: 14px;
+      padding: 6px;
+      text-align: center;
+      font-family: monospace;
+    ">
+      BUILD DEBUG — {{AFFILIATE_LINK}} — 2026-01-01
+    </div>
     <header>
         <div class="container">
             <div class="logo">KalyteroInternet.gr</div>
@@ -1666,10 +1704,24 @@
     </script>
 
     <!-- Floating CTA (Mobile) -->
-    <div class="floating-cta" aria-hidden="false">
+    <div class="floating-cta" id="floating-cta" aria-hidden="false">
         <a href="{{AFFILIATE_LINK}}" class="floating-cta__btn" target="_blank" rel="nofollow sponsored">
             Έλεγχος διαθεσιμότητας
         </a>
     </div>
+
+    <script>
+        // HARD DEBUG: Floating CTA check
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('floating-cta');
+            console.log('[floating-cta] exists?', !!el);
+            if (el) {
+                const cs = window.getComputedStyle(el);
+                console.log('[floating-cta] display', cs.display, 'visibility', cs.visibility, 'opacity', cs.opacity, 'zIndex', cs.zIndex);
+            }
+        });
+
+        console.log("BUILD DEBUG MARKER 2026-01-01");
+    </script>
 </body>
 </html>
