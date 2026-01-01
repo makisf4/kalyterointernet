@@ -32,6 +32,7 @@
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            padding-bottom: 90px;
         }
 
         .container {
@@ -572,6 +573,69 @@
             font-size: 0.8125rem;
             color: var(--muted);
             line-height: 1.4;
+        }
+
+        /* Floating CTA (Mobile) */
+        .floating-cta {
+            position: fixed;
+            bottom: calc(16px + env(safe-area-inset-bottom));
+            right: 16px;
+            z-index: 999;
+            display: block;
+        }
+
+        .floating-cta__btn {
+            display: inline-block;
+            background: var(--text);
+            color: var(--surface);
+            padding: 14px 24px;
+            text-decoration: none;
+            border-radius: 28px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.2s ease;
+            border: 1px solid var(--text);
+            min-height: 44px;
+            line-height: 1.4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .floating-cta__btn:hover,
+        .floating-cta__btn:focus {
+            background: var(--linkHover);
+            border-color: var(--linkHover);
+            color: var(--surface);
+            text-decoration: none;
+            outline: 2px solid var(--linkHover);
+            outline-offset: 2px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Desktop: Hide floating CTA */
+        @media (min-width: 1024px) {
+            .floating-cta {
+                display: none;
+            }
+
+            body {
+                padding-bottom: 0;
+            }
+        }
+
+        /* Small mobile: Full-width pill at bottom */
+        @media (max-width: 480px) {
+            .floating-cta {
+                left: 16px;
+                right: 16px;
+                bottom: calc(16px + env(safe-area-inset-bottom));
+            }
+
+            .floating-cta__btn {
+                width: 100%;
+                text-align: center;
+                border-radius: 28px;
+            }
         }
 
         /* Connection Types */
@@ -1592,5 +1656,12 @@
             }
         })();
     </script>
+
+    <!-- Floating CTA (Mobile) -->
+    <div class="floating-cta" aria-hidden="false">
+        <a href="{{AFFILIATE_LINK}}" class="floating-cta__btn" target="_blank" rel="nofollow sponsored">
+            Έλεγχος διαθεσιμότητας
+        </a>
+    </div>
 </body>
 </html>
