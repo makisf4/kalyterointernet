@@ -269,6 +269,21 @@
             width: auto !important;
         }
 
+        .price-from {
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 0.9em;
+            color: var(--muted);
+            opacity: 0.95;
+            white-space: nowrap;
+        }
+
+        .last-updated {
+            margin: 10px 0 0;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
         /* Screen Reader Only - Accessibility */
         .sr-only {
             position: absolute;
@@ -988,6 +1003,10 @@
         }
 
         @media (max-width: 480px) {
+            .price-from {
+                font-size: 0.88em;
+            }
+
             .container {
                 padding: 0 16px;
             }
@@ -1183,41 +1202,43 @@
                         <tr>
                             <td><img src="assets/logos/vodafone.png" alt="Vodafone σταθερό internet" class="provider-logo"></td>
                             <td>FTTH (οπτική ίνα έως το σπίτι) / ADSL (σε κάποια πακέτα)</td>
-                            <td>Έως 500Mbps (ενδεικτικά: Fiber 100 / Full Fiber 300 / Full Fiber 500)</td>
+                            <td>Έως 500Mbps (ενδεικτικά: Fiber 100 / Full Fiber 300 / Full Fiber 500)<br><span class="price-from">Ενδεικτικά από 18,90€/μήνα</span></td>
                             <td>12-24 μήνες (ανά πακέτο)</td>
                             <td>Οικιακή χρήση, streaming, τηλεργασία — όπου υπάρχει κάλυψη FTTH</td>
                         </tr>
                         <tr>
                             <td><img src="assets/logos/cosmote-20260101.png" alt="Cosmote πάροχος σταθερού internet" class="provider-logo"></td>
                             <td>FTTH / VDSL/ADSL (ανά περιοχή & πρόγραμμα Double Play)</td>
-                            <td>Έως 3Gbps (όπου διαθέσιμο) — ενδεικτικά: 100/200/…/3000Mbps</td>
+                            <td>Έως 3Gbps (όπου διαθέσιμο) — ενδεικτικά: 100/200/…/3000Mbps<br><span class="price-from">Ενδεικτικά από 27,90€/μήνα</span></td>
                             <td>24 μήνες (συνήθως)</td>
                             <td>Σταθερή κάλυψη, επιλογές από βασικές έως ultra-fast fiber</td>
                         </tr>
                         <tr>
                             <td><img src="assets/logos/nova-20260101.png" alt="Nova σταθερό internet" class="provider-logo"></td>
                             <td>FTTH (όπου διαθέσιμο)</td>
-                            <td>Έως 1Gbps (Fiber 100/200/300/500/1G), upload έως 500Mbps ανά πρόγραμμα</td>
+                            <td>Έως 1Gbps (Fiber 100/200/300/500/1G), upload έως 500Mbps ανά πρόγραμμα<br><span class="price-from">Ενδεικτικά από 27,22€/μήνα</span></td>
                             <td>Σύμφωνα με όρους πακέτου</td>
                             <td>Χρήστες που θέλουν ισορροπία τιμής/απόδοσης όπου υπάρχει κάλυψη</td>
                         </tr>
                         <tr>
                             <td><img src="assets/logos/inalan.png" alt="Inalan πάροχος σταθερού internet" class="provider-logo"></td>
                             <td>FTTH (100% οπτική ίνα)</td>
-                            <td>Συμμετρικά έως 1Gbps/1Gbps (300/300 και 1000/1000 Mbps)</td>
+                            <td>Συμμετρικά έως 1Gbps/1Gbps (300/300 και 1000/1000 Mbps)<br><span class="price-from">Ενδεικτικά από 14€/μήνα</span></td>
                             <td>Χωρίς δέσμευση (όπου ισχύει)</td>
                             <td>Power users, gaming, μεγάλα uploads (όπου υπάρχει κάλυψη Inalan)</td>
                         </tr>
                         <tr>
                             <td><img src="assets/logos/skytelecom.png" alt="SkyTelecom σταθερό internet" class="provider-logo"></td>
                             <td>FWA/airFiber (ασύρματο σταθερό)</td>
-                            <td>Έως 1Gbps (air Fiber 300/500/1G), ανά κάλυψη/πακέτο</td>
+                            <td>Έως 1Gbps (air Fiber 300/500/1G), ανά κάλυψη/πακέτο<br><span class="price-from">Ενδεικτικά από 29,90€/μήνα</span></td>
                             <td>12-24 μήνες</td>
                             <td>Περιοχές χωρίς fiber, streaming, τηλεργασία (όπου υπάρχει κάλυψη)</td>
                         </tr>
                     </tbody>
                 </table>
                 <div id="providers-cards" class="card-view"></div>
+                
+                <p class="last-updated">Τελευταία ενημέρωση: Ιανουάριος 2026</p>
                 
                 <section class="global-cta-block">
                     <a href="{{AFFILIATE_LINK}}"
@@ -1819,6 +1840,54 @@
             // Setup after a short delay to ensure inline CTAs are in DOM
             setTimeout(setupSmartHide, 100);
         })();
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Τι σημαίνει FTTH;",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "FTTH σημαίνει οπτική ίνα έως το σπίτι. Η διαθεσιμότητα και οι τελικές ταχύτητες εξαρτώνται από την περιοχή και το πακέτο."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Τι είναι FWA (σταθερό ασύρματο);",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "FWA είναι σταθερό internet μέσω ασύρματης πρόσβασης. Μπορεί να είναι λύση σε περιοχές χωρίς οπτική ίνα, με επιδόσεις που εξαρτώνται από κάλυψη και σήμα."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Πώς να διαλέξω πάροχο internet;",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ξεκίνα από διαθεσιμότητα στη διεύθυνσή σου (FTTH/VDSL/FWA), μετά σύγκρινε ταχύτητα, διάρκεια συμβολαίου, και τιμή. Οι επιλογές διαφέρουν ανά περιοχή."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Οι τιμές στο kalyterointernet.gr είναι δεσμευτικές;",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Όχι. Οι τιμές και τα πακέτα είναι ενδεικτικά και μπορεί να αλλάζουν ανά διαθεσιμότητα, περιοχή και τρέχουσες προωθητικές ενέργειες."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Υπάρχουν affiliate links;",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ορισμένα links μπορεί να είναι affiliate. Αυτό δεν επηρεάζει την παρουσίαση των πληροφοριών και αναφέρεται στο disclaimer της σελίδας."
+                }
+            }
+        ]
+    }
     </script>
 </body>
 </html>
