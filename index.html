@@ -582,6 +582,7 @@
             right: 16px;
             z-index: 999;
             display: block;
+            outline: 2px solid red; /* DEBUG: Remove in next step */
         }
 
         .floating-cta__btn {
@@ -612,10 +613,17 @@
             transform: translateY(-2px);
         }
 
-        /* Desktop: Hide floating CTA */
+        /* Desktop: Show floating CTA with smaller styling */
         @media (min-width: 1024px) {
             .floating-cta {
-                display: none;
+                right: 24px;
+                bottom: calc(24px + env(safe-area-inset-bottom));
+            }
+
+            .floating-cta__btn {
+                min-height: 40px;
+                padding: 10px 14px;
+                font-size: 0.95rem;
             }
 
             body {
