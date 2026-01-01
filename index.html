@@ -455,6 +455,33 @@
             font-size: 1rem;
         }
 
+        /* Offer Lists */
+        .offer-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 12px 0 8px;
+        }
+
+        .offer-list li {
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            background: var(--surface);
+            line-height: 1.35;
+        }
+
+        .offer-list strong {
+            font-weight: 700;
+        }
+
+        .offer-note {
+            margin-top: 6px;
+            font-size: 0.875rem;
+            color: var(--muted);
+            opacity: 0.9;
+        }
+
         .pros-cons {
             display: grid !important;
             grid-template-columns: repeat(2, 1fr) !important;
@@ -938,6 +965,14 @@
                 padding: 12px 24px;
                 font-size: 0.9375rem;
                 min-height: 44px;
+            }
+
+        }
+
+        /* Desktop refinement for offer lists */
+        @media (min-width: 768px) {
+            .offer-list li {
+                padding: 12px 14px;
             }
         }
 
