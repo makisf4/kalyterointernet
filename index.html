@@ -1492,9 +1492,9 @@
                     
                     card.appendChild(cardHeader);
 
-                    // Map headers to cells (skip first: logo, last: CTA)
-                    const dataHeaders = headers.slice(1, -1); // Skip "Πάροχος" and "Ενέργεια"
-                    const dataCells = cells.slice(1, -1); // Skip logo cell and CTA cell
+                    // Map headers to cells (skip first: logo)
+                    const dataHeaders = headers.slice(1); // Skip "Πάροχος"
+                    const dataCells = cells.slice(1); // Skip logo cell
 
                     // Create fields for each data column
                     dataHeaders.forEach((header, index) => {
@@ -1515,23 +1515,6 @@
                             card.appendChild(field);
                         }
                     });
-
-                    // Add CTA button (last cell)
-                    const ctaCell = cells[cells.length - 1];
-                    const ctaLink = ctaCell.querySelector('a.cta-link');
-                    
-                    if (ctaLink) {
-                        const ctaContainer = document.createElement('div');
-                        ctaContainer.className = 'provider-card-cta';
-                        
-                        const newCtaLink = document.createElement('a');
-                        newCtaLink.href = ctaLink.getAttribute('href');
-                        newCtaLink.className = 'cta-link';
-                        newCtaLink.textContent = ctaLink.textContent.trim();
-                        
-                        ctaContainer.appendChild(newCtaLink);
-                        card.appendChild(ctaContainer);
-                    }
 
                     cardsContainer.appendChild(card);
                 });
