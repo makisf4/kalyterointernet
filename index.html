@@ -534,6 +534,46 @@
             text-decoration: none;
         }
 
+        /* Global CTA Blocks */
+        .global-cta-block {
+            margin: 3rem auto 0;
+            padding: 2rem 0;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .global-cta-button {
+            display: inline-block;
+            background: var(--text);
+            color: var(--surface);
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            border: 1px solid var(--text);
+            min-height: 48px;
+            line-height: 1.4;
+        }
+
+        .global-cta-button:hover,
+        .global-cta-button:focus {
+            background: var(--linkHover);
+            border-color: var(--linkHover);
+            color: var(--surface);
+            text-decoration: none;
+            outline: 2px solid var(--linkHover);
+            outline-offset: 2px;
+        }
+
+        .global-cta-note {
+            margin-top: 0.75rem;
+            font-size: 0.8125rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
         /* Connection Types */
         .connection-types {
             display: grid;
@@ -810,6 +850,17 @@
             .provider-card-header h3 {
                 font-size: 1.125rem;
             }
+
+            .global-cta-block {
+                margin: 2rem auto 0;
+                padding: 1.5rem 0;
+            }
+
+            .global-cta-button {
+                padding: 12px 24px;
+                font-size: 0.9375rem;
+                min-height: 44px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -885,6 +936,23 @@
             .provider-card-cta .cta-link {
                 padding: 10px 16px;
                 font-size: 0.875rem;
+            }
+
+            .global-cta-block {
+                margin: 1.5rem auto 0;
+                padding: 1.25rem 0;
+                max-width: 100%;
+            }
+
+            .global-cta-button {
+                padding: 12px 20px;
+                font-size: 0.875rem;
+                width: 100%;
+                min-height: 44px;
+            }
+
+            .global-cta-note {
+                font-size: 0.75rem;
             }
 
             .provider-logo-lg {
@@ -1026,6 +1094,14 @@
                     </tbody>
                 </table>
                 <div id="providers-cards" class="card-view"></div>
+                
+                <section class="global-cta-block">
+                    <a href="{{AFFILIATE_LINK}}"
+                       class="global-cta-button"
+                       target="_blank"
+                       rel="nofollow sponsored">Έλεγχος διαθεσιμότητας στην περιοχή σου</a>
+                    <p class="global-cta-note">Μεταφορά σε συνεργαζόμενη πλατφόρμα προσφορών.</p>
+                </section>
             </section>
 
             <!-- Provider Details -->
@@ -1275,6 +1351,14 @@
                     <p>Ιδανική για περιοχές χωρίς εύκολη πρόσβαση σε FTTH, για όσους θέλουν γρήγορη εγκατάσταση χωρίς έργα, για αγροτικές ή απομακρυσμένες περιοχές, και για χρήστες που χρειάζονται καλή ταχύτητα αλλά δεν έχουν τηλεφωνική γραμμή ή Fiber διαθεσιμότητα.</p>
                     <p>Η τελική ταχύτητα και η διαθεσιμότητα εξαρτώνται από τη διεύθυνση και την τεχνολογία που υποστηρίζεται στην περιοχή.</p>
                 </article>
+                
+                <section class="global-cta-block">
+                    <a href="{{AFFILIATE_LINK}}"
+                       class="global-cta-button"
+                       target="_blank"
+                       rel="nofollow sponsored">Έλεγχος διαθεσιμότητας στην περιοχή σου</a>
+                    <p class="global-cta-note">Μεταφορά σε συνεργαζόμενη πλατφόρμα προσφορών.</p>
+                </section>
             </section>
 
             <!-- Connection Types -->
