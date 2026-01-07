@@ -1173,6 +1173,206 @@
                 grid-template-columns: 1fr;
             }
 
+        /* Ad Slots */
+        .ad-slot {
+            margin: 24px auto;
+            max-width: 1100px;
+            padding: 0 16px;
+        }
+        .ad-slot__inner {
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 14px;
+            padding: 12px;
+            background: rgba(0,0,0,0.02);
+        }
+        .ad-slot__label {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 8px;
+        }
+        .ad-slot__mount {
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ad-slot--hidden {
+            display: none !important;
+        }
+        @media (min-width: 900px) {
+            .ad-slot__mount { min-height: 160px; }
+        }
+
+        /* Consent Banner */
+        .consent-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 20px;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+        .consent-banner__content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .consent-banner__text h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .consent-banner__text p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin: 0;
+        }
+        .consent-banner__actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .consent-banner__btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .consent-banner__btn:hover {
+            background: var(--bg);
+        }
+        .consent-banner__btn--primary {
+            background: var(--text);
+            color: var(--surface);
+            border-color: var(--text);
+        }
+        .consent-banner__btn--primary:hover {
+            background: var(--linkHover);
+            border-color: var(--linkHover);
+        }
+        .consent-banner--hidden {
+            display: none !important;
+        }
+
+        /* Settings Modal */
+        .consent-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .consent-modal--visible {
+            display: flex;
+        }
+        .consent-modal__content {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 24px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .consent-modal__header {
+            margin-bottom: 20px;
+        }
+        .consent-modal__header h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+        .consent-modal__header p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin: 0;
+        }
+        .consent-modal__toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .consent-modal__toggle:last-child {
+            border-bottom: none;
+        }
+        .consent-modal__toggle-label {
+            flex: 1;
+        }
+        .consent-modal__toggle-label strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+        .consent-modal__toggle-label span {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+        .consent-modal__switch {
+            position: relative;
+            width: 48px;
+            height: 24px;
+            background: var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .consent-modal__switch--on {
+            background: var(--linkHover);
+        }
+        .consent-modal__switch::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--surface);
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.2s;
+        }
+        .consent-modal__switch--on::after {
+            transform: translateX(24px);
+        }
+        .consent-modal__actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .consent-modal__actions button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        .consent-modal__actions button:hover {
+            background: var(--bg);
+        }
+        .consent-modal__actions .consent-banner__btn--primary {
+            background: var(--text);
+            color: var(--surface);
+        }
+        .consent-modal__actions .consent-banner__btn--primary:hover {
+            background: var(--linkHover);
+        }
+
     </style>
 </head>
 <body>
@@ -1256,6 +1456,16 @@
                        rel="nofollow sponsored">Έλεγχος διαθεσιμότητας στην περιοχή σου</a>
                     <p class="global-cta-note">Μεταφορά σε συνεργαζόμενη πλατφόρμα προσφορών.</p>
                 </section>
+            </section>
+
+            <!-- Ad Slot 1 -->
+            <section id="ad-slot-1" class="ad-slot ad-slot--hidden" aria-label="Διαφήμιση" data-ad-slot="AD_SLOT_ID_1">
+                <div class="ad-slot__inner">
+                    <div class="ad-slot__label">Διαφήμιση</div>
+                    <div class="ad-slot__mount">
+                        <!-- AdSense mounts here after consent -->
+                    </div>
+                </div>
             </section>
 
             <!-- Provider Details -->
@@ -1376,6 +1586,16 @@
                     <p>Κατάλληλη για όλες τις κατηγορίες χρηστών: από βασική χρήση (ADSL) έως απαιτητικές εφαρμογές (Fiber). Ιδανική για οικογένειες που αναζητούν αξιοπιστία, streaming, τηλεργασία, και όσους ζουν σε περιοχές με περιορισμένες επιλογές.</p>
                     <p>Η τελική ταχύτητα και η διαθεσιμότητα εξαρτώνται από τη διεύθυνση και την τεχνολογία που υποστηρίζεται στην περιοχή.</p>
                 </article>
+
+            <!-- Ad Slot 2 -->
+            <section id="ad-slot-2" class="ad-slot ad-slot--hidden" aria-label="Διαφήμιση" data-ad-slot="AD_SLOT_ID_2">
+                <div class="ad-slot__inner">
+                    <div class="ad-slot__label">Διαφήμιση</div>
+                    <div class="ad-slot__mount">
+                        <!-- AdSense mounts here after consent -->
+                    </div>
+                </div>
+            </section>
 
                 <article class="provider-section">
                     <div class="provider-header">
@@ -1679,6 +1899,8 @@
             <p>&copy; 2026 KalyteroInternet.gr - Οδηγός Σύγκρισης Παρόχων Internet</p>
             <p>Όλες οι πληροφορίες παρέχονται για ενημερωτικούς σκοπούς.</p>
             <p>Τα λογότυπα και οι εμπορικές ονομασίες ανήκουν στους αντίστοιχους παρόχους. Το kalyterointernet.gr είναι ανεξάρτητο site σύγκρισης και δεν αποτελεί επίσημο συνεργάτη παρόχων, εκτός αν αναφέρεται ρητά.</p>
+            <p><a href="#" id="open-cookie-settings" style="color: var(--link); text-decoration: underline;">Ρυθμίσεις cookies</a></p>
+            <p style="font-size: 0.9rem; color: var(--muted); margin-top: 8px;">Μπορείτε να αλλάξετε τις επιλογές σας οποιαδήποτε στιγμή από το 'Ρυθμίσεις cookies'. Οι διαφημίσεις προβάλλονται μόνο με τη συγκατάθεσή σας.</p>
         </div>
     </footer>
 
@@ -1897,6 +2119,291 @@
             }
         ]
     }
+    </script>
+
+    <!-- ===== Ads & Consent (KI) ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Namespace
+            window.KI = window.KI || {};
+
+            const CONSENT_KEY = 'ki_cookie_consent_v1';
+            const AD_CLIENT = 'ca-pub-8372893370319453';
+            const AD_SCRIPT_URL = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + AD_CLIENT;
+
+            // Consent storage helpers
+            function getConsent() {
+                try {
+                    const stored = localStorage.getItem(CONSENT_KEY);
+                    return stored ? JSON.parse(stored) : null;
+                } catch (e) {
+                    return null;
+                }
+            }
+
+            function saveConsent(consent) {
+                try {
+                    consent.ts = new Date().toISOString();
+                    localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
+                } catch (e) {
+                    console.warn('Failed to save consent:', e);
+                }
+            }
+
+            // Consent UI
+            function createConsentBanner() {
+                const banner = document.createElement('div');
+                banner.className = 'consent-banner';
+                banner.id = 'consent-banner';
+                banner.innerHTML = `
+                    <div class="consent-banner__content">
+                        <div class="consent-banner__text">
+                            <h4>Cookies & Διαφημίσεις</h4>
+                            <p>Χρησιμοποιούμε cookies για βασική λειτουργία και, με τη συγκατάθεσή σας, για στατιστικά και προβολή διαφημίσεων. Μπορείτε να αλλάξετε επιλογές ανά πάσα στιγμή.</p>
+                        </div>
+                        <div class="consent-banner__actions">
+                            <button class="consent-banner__btn consent-banner__btn--primary" id="consent-accept-all">Αποδοχή όλων</button>
+                            <button class="consent-banner__btn" id="consent-essential-only">Μόνο απαραίτητα</button>
+                            <button class="consent-banner__btn" id="consent-open-settings">Ρυθμίσεις</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(banner);
+
+                document.getElementById('consent-accept-all').addEventListener('click', function() {
+                    saveConsent({ analytics: true, ads: true });
+                    banner.classList.add('consent-banner--hidden');
+                    initAds();
+                });
+
+                document.getElementById('consent-essential-only').addEventListener('click', function() {
+                    saveConsent({ analytics: false, ads: false });
+                    banner.classList.add('consent-banner--hidden');
+                });
+
+                document.getElementById('consent-open-settings').addEventListener('click', function() {
+                    openSettingsModal();
+                });
+            }
+
+            function createSettingsModal() {
+                const modal = document.createElement('div');
+                modal.className = 'consent-modal';
+                modal.id = 'consent-modal';
+                modal.innerHTML = `
+                    <div class="consent-modal__content">
+                        <div class="consent-modal__header">
+                            <h3>Ρυθμίσεις Cookies</h3>
+                            <p>Επιλέξτε ποιες κατηγορίες cookies θέλετε να αποδεχτείτε.</p>
+                        </div>
+                        <div class="consent-modal__toggle" data-toggle="analytics">
+                            <div class="consent-modal__toggle-label">
+                                <strong>Στατιστικά (Analytics)</strong>
+                                <span>Βοηθάει να κατανοήσουμε πώς οι επισκέπτες χρησιμοποιούν τον ιστότοπο.</span>
+                            </div>
+                            <div class="consent-modal__switch" id="toggle-analytics"></div>
+                        </div>
+                        <div class="consent-modal__toggle" data-toggle="ads">
+                            <div class="consent-modal__toggle-label">
+                                <strong>Διαφημίσεις (Ads)</strong>
+                                <span>Χρησιμοποιείται για την προβολή διαφημίσεων που μπορεί να σας ενδιαφέρουν.</span>
+                            </div>
+                            <div class="consent-modal__switch" id="toggle-ads"></div>
+                        </div>
+                        <div class="consent-modal__actions">
+                            <button class="consent-banner__btn" id="modal-cancel">Ακύρωση</button>
+                            <button class="consent-banner__btn consent-banner__btn--primary" id="modal-save">Αποθήκευση</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+
+                const consent = getConsent();
+                if (consent) {
+                    updateToggle('analytics', consent.analytics);
+                    updateToggle('ads', consent.ads);
+                }
+
+                document.querySelectorAll('.consent-modal__switch').forEach(function(switchEl) {
+                    switchEl.addEventListener('click', function() {
+                        const toggle = this.closest('.consent-modal__toggle');
+                        const key = toggle.dataset.toggle;
+                        const current = this.classList.contains('consent-modal__switch--on');
+                        updateToggle(key, !current);
+                    });
+                });
+
+                document.getElementById('modal-cancel').addEventListener('click', closeSettingsModal);
+                document.getElementById('modal-save').addEventListener('click', function() {
+                    const consent = {
+                        analytics: document.getElementById('toggle-analytics').classList.contains('consent-modal__switch--on'),
+                        ads: document.getElementById('toggle-ads').classList.contains('consent-modal__switch--on')
+                    };
+                    saveConsent(consent);
+                    closeSettingsModal();
+                    const banner = document.getElementById('consent-banner');
+                    if (banner) banner.classList.add('consent-banner--hidden');
+                    initAds();
+                });
+
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeSettingsModal();
+                    }
+                });
+            }
+
+            function updateToggle(key, value) {
+                const toggle = document.getElementById('toggle-' + key);
+                if (toggle) {
+                    if (value) {
+                        toggle.classList.add('consent-modal__switch--on');
+                    } else {
+                        toggle.classList.remove('consent-modal__switch--on');
+                    }
+                }
+            }
+
+            function openSettingsModal() {
+                const modal = document.getElementById('consent-modal');
+                if (modal) {
+                    modal.classList.add('consent-modal--visible');
+                }
+            }
+
+            function closeSettingsModal() {
+                const modal = document.getElementById('consent-modal');
+                if (modal) {
+                    modal.classList.remove('consent-modal--visible');
+                }
+            }
+
+            // AdSense loader
+            let adsScriptLoaded = false;
+            let adsEnabled = false;
+
+            function loadAdSenseScript() {
+                if (adsScriptLoaded) return;
+                adsScriptLoaded = true;
+
+                const script = document.createElement('script');
+                script.src = AD_SCRIPT_URL;
+                script.crossOrigin = 'anonymous';
+                script.async = true;
+                script.onload = function() {
+                    adsEnabled = true;
+                    setupLazyAds();
+                };
+                script.onerror = function() {
+                    console.warn('AdSense script failed to load');
+                    hideAllAdSlots();
+                };
+                document.head.appendChild(script);
+            }
+
+            function hideAllAdSlots() {
+                document.querySelectorAll('.ad-slot').forEach(function(slot) {
+                    slot.classList.add('ad-slot--hidden');
+                });
+            }
+
+            function showAdSlots() {
+                document.querySelectorAll('.ad-slot').forEach(function(slot) {
+                    slot.classList.remove('ad-slot--hidden');
+                });
+            }
+
+            // Lazy mount ads
+            function setupLazyAds() {
+                if (!adsEnabled) return;
+
+                const adSlots = document.querySelectorAll('.ad-slot[data-ad-slot]');
+                if (adSlots.length === 0) return;
+
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            mountAd(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    rootMargin: '200px'
+                });
+
+                adSlots.forEach(function(slot) {
+                    observer.observe(slot);
+                });
+            }
+
+            function mountAd(section) {
+                const mount = section.querySelector('.ad-slot__mount');
+                if (!mount || mount.querySelector('.adsbygoogle')) return;
+
+                const adSlotId = section.dataset.adSlot;
+                if (!adSlotId || adSlotId === 'AD_SLOT_ID_1' || adSlotId === 'AD_SLOT_ID_2') {
+                    // Placeholder IDs - don't mount yet
+                    return;
+                }
+
+                const ins = document.createElement('ins');
+                ins.className = 'adsbygoogle';
+                ins.style.display = 'block';
+                ins.setAttribute('data-ad-client', AD_CLIENT);
+                ins.setAttribute('data-ad-slot', adSlotId);
+                ins.setAttribute('data-ad-format', 'auto');
+                ins.setAttribute('data-full-width-responsive', 'true');
+
+                mount.appendChild(ins);
+
+                try {
+                    (window.adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {
+                    console.warn('AdSense push failed:', e);
+                    hideAllAdSlots();
+                }
+            }
+
+            function initAds() {
+                const consent = getConsent();
+                if (consent && consent.ads === true) {
+                    showAdSlots();
+                    loadAdSenseScript();
+                } else {
+                    hideAllAdSlots();
+                }
+            }
+
+            // Initialize
+            function init() {
+                createSettingsModal();
+
+                const consent = getConsent();
+                if (!consent) {
+                    createConsentBanner();
+                } else {
+                    initAds();
+                }
+
+                // Footer link
+                const footerLink = document.getElementById('open-cookie-settings');
+                if (footerLink) {
+                    footerLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        openSettingsModal();
+                    });
+                }
+            }
+
+            // Run on DOM ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
     </script>
 </body>
 </html>
